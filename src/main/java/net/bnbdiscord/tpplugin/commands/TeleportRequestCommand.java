@@ -56,8 +56,8 @@ public class TeleportRequestCommand implements CommandExecutor {
                     if (plugin.TeleportRequests.containsKey(receiverID)) {
                         ArrayList<String> req2s = plugin.TeleportRequests.get(receiverID);
                         if (req2s.contains(senderID)) {
-                            playerReceiver.sendMessage(ChatColor.RED + "The teleport request for " + playerSender.getName() + " has expired");
-                            playerReceiver.sendMessage(ChatColor.RED + "The teleport request for " + playerSender.getName() + " has expired");
+                            playerReceiver.sendMessage(ChatColor.RED + "The teleport request from " + playerSender.getName() + " has expired");
+                            playerSender.sendMessage(ChatColor.RED + "The teleport request for " + playerReceiver.getName() + " has expired");
                             plugin.removeRequest(receiverID, senderID);
                         }
                     }
