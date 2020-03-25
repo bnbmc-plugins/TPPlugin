@@ -1,0 +1,20 @@
+name: TPPlugin
+version: "1.0"
+author: Vrabbers
+main: net.bnbdiscord.tpplugin.TPPlugin
+
+commands:
+  tprequest:
+    description: Requests a teleport to another player
+    usage: /tprequest (username)
+    aliases:
+      - tpr
+      - tpa
+
+  tpaccept:
+    description: Accepts someone's teleport request
+    usage: /tpaccept [username]
+
+  tpdecline:
+    description: Decline someone's teleport request
+    usage: /tpdecline [username]

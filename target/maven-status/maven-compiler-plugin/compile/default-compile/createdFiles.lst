@@ -1,0 +1,4 @@
+net\bnbdiscord\tpplugin\commands\TPRequestAcceptCommand.class
+net\bnbdiscord\tpplugin\commands\TeleportRequestCommand.class
+net\bnbdiscord\tpplugin\commands\TPRequestDeclineCommand.class
+net\bnbdiscord\tpplugin\TPPlugin.class
