@@ -55,9 +55,9 @@ public class TeleportRequestCommand implements CommandExecutor {
                 reqs.add(senderID);
                 plugin.TeleportRequests.replace(receiverID, reqs);
 
-                playerSender.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "SENT!" + ChatColor.GREEN + "You have sent a teleport request to " + playerSender.getName() + ". They have " +
+                playerSender.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "SENT!" + ChatColor.GREEN + " You have sent a teleport request to " + playerSender.getName() + ". They have " +
                         Integer.toString(plugin.getConfig().getInt("tpplugin-request-expiration")/20) + " seconds to accept it.");
-                playerReceiver.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "TPA RECIEVED!" + ChatColor.GREEN + "You have received a teleport request from " + playerSender.getName());
+                playerReceiver.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "TPA RECIEVED!" + ChatColor.GREEN + " You have received a teleport request from " + playerSender.getName());
                 playerReceiver.sendMessage(ChatColor.GREEN + "To accept this, type /tpaccept, otherwise, type /tpdeny. You have " +
                         Integer.toString(plugin.getConfig().getInt("tpplugin-request-expiration")/20) + " seconds to accept it.");
                 BukkitScheduler scheduler = plugin.getServer().getScheduler();
