@@ -14,7 +14,9 @@ commands:
   tpaccept:
     description: Accepts someone's teleport request
     usage: /tpaccept [username]
+    aliases: [tpallow, tpyes]
 
   tpdecline:
     description: Decline someone's teleport request
     usage: /tpdecline [username]
+    aliases: [tpdeny, tpno]
