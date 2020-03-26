@@ -2,7 +2,6 @@ package net.bnbdiscord.tpplugin.commands;
 
 import net.bnbdiscord.tpplugin.TPPlugin;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -10,8 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitScheduler;
 
 import java.util.ArrayList;
-import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.Random;
 
 public class TeleportRequestCommand implements CommandExecutor {
     private TPPlugin plugin;
@@ -56,11 +54,12 @@ public class TeleportRequestCommand implements CommandExecutor {
                 ArrayList<String> reqs = plugin.TeleportRequests.get(receiverID);
                 reqs.add(senderID);
                 plugin.TeleportRequests.replace(receiverID, reqs);
-                playerSender.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "SENT!" + ChatColor.GREEN + "You have sent a teleport request to " + playerSender.getName() + ". They have " +
-                        plugin.getConfig().getInt("tpplugin-request-expiration")/20) + " seconds to accept it.");
-                playerReceiver.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "TPA RECIEVED!" + ChatColor.GREEN + "You have recieved a teleport request from " + playerSender.getName());
+
+                playerSender.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "SENT!" + ChatColor.GREEN + " You have sent a teleport request to " + playerSender.getName() + ". They have " +
+                        Integer.toString(plugin.getConfig().getInt("tpplugin-request-expiration")/20) + " seconds to accept it.");
+                playerReceiver.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "TPA RECIEVED!" + ChatColor.GREEN + " You have received a teleport request from " + playerSender.getName());
                 playerReceiver.sendMessage(ChatColor.GREEN + "To accept this, type /tpaccept, otherwise, type /tpdeny. You have " +
-                        plugin.getConfig().getInt("tpplugin-request-expiration")/20) + " seconds to accept it.");
+                        Integer.toString(plugin.getConfig().getInt("tpplugin-request-expiration")/20) + " seconds to accept it.");
                 BukkitScheduler scheduler = plugin.getServer().getScheduler();
                 scheduler.scheduleSyncDelayedTask(plugin, () -> {
                     if (plugin.TeleportRequests.containsKey(receiverID)) {
