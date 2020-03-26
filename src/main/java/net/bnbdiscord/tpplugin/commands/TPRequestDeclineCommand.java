@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.UUID;
 
 public class TPRequestDeclineCommand implements CommandExecutor {
@@ -35,10 +36,16 @@ public class TPRequestDeclineCommand implements CommandExecutor {
                 ArrayList<String> reqs = plugin.TeleportRequests.get(player.getUniqueId().toString());
                 if (reqs.size() > 1) {
                     if (args.length == 0) {
+
                         player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "PROBLEM! " + ChatColor.YELLOW + "You have multiple teleport requests:");
-                        player.sendMessage(ChatColor.YELLOW + String.join(", ", reqs));
+                        ArrayList<String> reqNames = new ArrayList<>();
+                        for(String r : reqs){
+                            reqNames.add(Objects.requireNonNull(plugin.getServer().getPlayer(UUID.fromString(r))).getName());
+                        }
+                        player.sendMessage(ChatColor.YELLOW + String.join(", ", reqNames));
                         player.sendMessage(ChatColor.YELLOW + "Therefore, you must specify someone to decline.");
                         return true;
+
                     } else if (args.length > 1) return false;
                     else {
                         Player teleportingPlayer = plugin.getServer().getPlayer(args[0]);
@@ -77,7 +84,10 @@ public class TPRequestDeclineCommand implements CommandExecutor {
 
                 }
             } else {
+
                 player.sendMessage(errors[new Random().nextInt(errors.length)] + "You don't have any pending teleport requests!");
+                return true;
+
             }
         }
         return false;
