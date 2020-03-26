@@ -18,16 +18,6 @@ public class TeleportRequestCommand implements CommandExecutor {
         plugin = p;
     }
 
-    String[] plugin.ERRORS = {
-            ChatColor.RED + "" + ChatColor.BOLD + "AW SHUCKS! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "OOPS! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "ERROR! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "FAIL! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "UH OH! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "WHOOPS! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "NOPE! " + ChatColor.RED
-    };
-    
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
         if (commandSender instanceof Player) {

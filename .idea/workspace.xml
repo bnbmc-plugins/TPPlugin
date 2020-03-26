@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90327b95-0ca4-440e-89e1-9d7b6fe1d94b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/bnbdiscord/tpplugin/TPPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/bnbdiscord/tpplugin/TPPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/bnbdiscord/tpplugin/commands/TPRequestAcceptCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/bnbdiscord/tpplugin/commands/TPRequestAcceptCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/bnbdiscord/tpplugin/commands/TPRequestDeclineCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/bnbdiscord/tpplugin/commands/TPRequestDeclineCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/bnbdiscord/tpplugin/commands/TeleportHereRequestCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/bnbdiscord/tpplugin/commands/TeleportRequestCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/bnbdiscord/tpplugin/commands/TeleportRequestCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,6 +117,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.right/-1366.316.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1585181486731" />
+    <state x="735" y="205" key="RollbackChangesDialog" timestamp="1585186399663">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="735" y="205" key="RollbackChangesDialog/-1366.316.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1585186399663" />
     <state x="673" y="226" key="SettingsEditor" timestamp="1585162631045">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
