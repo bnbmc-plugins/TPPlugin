@@ -18,7 +18,7 @@ public class TeleportRequestCommand implements CommandExecutor {
         plugin = p;
     }
 
-    String[] errors = {
+    String[] plugin.ERRORS = {
             ChatColor.RED + "" + ChatColor.BOLD + "AW SHUCKS! " + ChatColor.RED,
             ChatColor.RED + "" + ChatColor.BOLD + "OOPS! " + ChatColor.RED,
             ChatColor.RED + "" + ChatColor.BOLD + "ERROR! " + ChatColor.RED,
@@ -35,17 +35,17 @@ public class TeleportRequestCommand implements CommandExecutor {
             if (args.length != 1) return false;
             Player playerReceiver = plugin.getServer().getPlayer(args[0]);
             if (playerReceiver == null) {
-                playerSender.sendMessage(errors[new Random().nextInt(errors.length)] + "Can't find a user by that name!");
+                playerSender.sendMessage(plugin.ERRORS[new Random().nextInt(plugin.ERRORS.length)] + "Can't find a user by that name!");
             } else {
                 String receiverID = playerReceiver.getUniqueId().toString();
                 String senderID = playerSender.getUniqueId().toString();
                 if(receiverID.equals(senderID)){
-                    playerSender.sendMessage(errors[new Random().nextInt(errors.length)] + "You can't send yourself a teleport request, silly!");
+                    playerSender.sendMessage(plugin.ERRORS[new Random().nextInt(plugin.ERRORS.length)] + "You can't send yourself a teleport request, silly!");
                     return true;
                 }
                 if (plugin.TeleportRequests.containsKey(receiverID)) {
                     if (plugin.TeleportRequests.get(receiverID).contains(senderID)) {
-                        playerSender.sendMessage(errors[new Random().nextInt(errors.length)] + "You have already sent that player a teleport request!");
+                        playerSender.sendMessage(plugin.ERRORS[new Random().nextInt(plugin.ERRORS.length)] + "You have already sent that player a teleport request!");
                         return true;
                     }
                 } else {
@@ -55,18 +55,18 @@ public class TeleportRequestCommand implements CommandExecutor {
                 reqs.add(senderID);
                 plugin.TeleportRequests.replace(receiverID, reqs);
 
-                playerSender.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "SENT!" + ChatColor.GREEN + " You have sent a teleport request to " + playerSender.getName() + ". They have " +
-                        Integer.toString(plugin.getConfig().getInt("tpplugin-request-expiration")/20) + " seconds to accept it.");
+                playerSender.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "SENT!" + ChatColor.GREEN + " You have sent a teleport request to " + playerReceiver.getName() + ". They have " +
+                        plugin.getConfig().getInt("tpplugin-request-expiration") / 20 + " seconds to accept it.");
                 playerReceiver.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "TPA RECIEVED!" + ChatColor.GREEN + " You have received a teleport request from " + playerSender.getName());
                 playerReceiver.sendMessage(ChatColor.GREEN + "To accept this, type /tpaccept, otherwise, type /tpdeny. You have " +
-                        Integer.toString(plugin.getConfig().getInt("tpplugin-request-expiration")/20) + " seconds to accept it.");
+                        plugin.getConfig().getInt("tpplugin-request-expiration") / 20 + " seconds to accept it.");
                 BukkitScheduler scheduler = plugin.getServer().getScheduler();
                 scheduler.scheduleSyncDelayedTask(plugin, () -> {
                     if (plugin.TeleportRequests.containsKey(receiverID)) {
                         ArrayList<String> req2s = plugin.TeleportRequests.get(receiverID);
                         if (req2s.contains(senderID)) {
-                            playerReceiver.sendMessage(errors[new Random().nextInt(errors.length)] + "The teleport request from " + playerSender.getName() + " has expired!");
-                            playerSender.sendMessage(errors[new Random().nextInt(errors.length)] + "The teleport request to " + playerReceiver.getName() + " has expired!");
+                            playerReceiver.sendMessage(plugin.ERRORS[new Random().nextInt(plugin.ERRORS.length)] + "The teleport request from " + playerSender.getName() + " has expired!");
+                            playerSender.sendMessage(plugin.ERRORS[new Random().nextInt(plugin.ERRORS.length)] + "The teleport request to " + playerReceiver.getName() + " has expired!");
                             plugin.removeRequest(receiverID, senderID);
                         }
                     }

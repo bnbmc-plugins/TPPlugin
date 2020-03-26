@@ -18,16 +18,6 @@ public class TPRequestDeclineCommand implements CommandExecutor {
     public TPRequestDeclineCommand(TPPlugin p) {
         plugin = p;
     }
-    
-    String[] errors = {
-            ChatColor.RED + "" + ChatColor.BOLD + "AW SHUCKS! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "OOPS! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "ERROR! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "FAIL! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "UH OH! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "WHOOPS! " + ChatColor.RED,
-            ChatColor.RED + "" + ChatColor.BOLD + "NOPE! " + ChatColor.RED
-    };
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
@@ -52,7 +42,7 @@ public class TPRequestDeclineCommand implements CommandExecutor {
                         Player teleportingPlayer = plugin.getServer().getPlayer(args[0]);
 
                         if (teleportingPlayer == null) {
-                            player.sendMessage(errors[new Random().nextInt(errors.length)] + "That player has not sent you a teleport request!");
+                            player.sendMessage(plugin.ERRORS[new Random().nextInt(plugin.ERRORS.length)] + "That player has not sent you a teleport request!");
                             return true;
                         }
 
@@ -70,12 +60,12 @@ public class TPRequestDeclineCommand implements CommandExecutor {
                 } else {
                     String req = reqs.get(0);
                     if(args.length != 0){
-                        player.sendMessage(errors[new Random().nextInt(errors.length)] + "You don't have multiple teleport requests! Enter the command without any arguments.");
+                        player.sendMessage(plugin.ERRORS[new Random().nextInt(plugin.ERRORS.length)] + "You don't have multiple teleport requests! Enter the command without any arguments.");
                         return true;
                     }
                     Player teleportingPlayer = plugin.getServer().getPlayer(UUID.fromString(req));
                     if(teleportingPlayer == null){
-                        player.sendMessage(errors[new Random().nextInt(errors.length)] + "That player isn't online anymore!");
+                        player.sendMessage(plugin.ERRORS[new Random().nextInt(plugin.ERRORS.length)] + "That player isn't online anymore!");
                         return true;
                     }
                     plugin.removeRequest(player.getUniqueId().toString(), teleportingPlayer.getUniqueId().toString());
@@ -86,7 +76,7 @@ public class TPRequestDeclineCommand implements CommandExecutor {
                 }
             } else {
 
-                player.sendMessage(errors[new Random().nextInt(errors.length)] + "You don't have any pending teleport requests!");
+                player.sendMessage(plugin.ERRORS[new Random().nextInt(plugin.ERRORS.length)] + "You don't have any pending teleport requests!");
                 return true;
 
             }

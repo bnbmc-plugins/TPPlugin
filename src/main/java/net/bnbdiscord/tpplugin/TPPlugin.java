@@ -3,6 +3,7 @@ package net.bnbdiscord.tpplugin;
 import net.bnbdiscord.tpplugin.commands.TPRequestAcceptCommand;
 import net.bnbdiscord.tpplugin.commands.TPRequestDeclineCommand;
 import net.bnbdiscord.tpplugin.commands.TeleportRequestCommand;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -12,7 +13,15 @@ import java.util.Objects;
 
 public class TPPlugin extends JavaPlugin {
     public HashMap<String, ArrayList<String>> TeleportRequests = new HashMap<>(); //these string
-
+    public final String[] ERRORS = {
+            ChatColor.RED + "" + ChatColor.BOLD + "AW SHUCKS! " + ChatColor.RED,
+            ChatColor.RED + "" + ChatColor.BOLD + "OOPS! " + ChatColor.RED,
+            ChatColor.RED + "" + ChatColor.BOLD + "ERROR! " + ChatColor.RED,
+            ChatColor.RED + "" + ChatColor.BOLD + "FAIL! " + ChatColor.RED,
+            ChatColor.RED + "" + ChatColor.BOLD + "UH OH! " + ChatColor.RED,
+            ChatColor.RED + "" + ChatColor.BOLD + "WHOOPS! " + ChatColor.RED,
+            ChatColor.RED + "" + ChatColor.BOLD + "NOPE! " + ChatColor.RED
+    };
     @Override
     public void onEnable() {
         getConfig().addDefault("tpplugin-request-expiration", 1200);
