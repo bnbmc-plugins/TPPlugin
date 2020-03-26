@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 import java.util.UUID;
 
 public class TPRequestDeclineCommand implements CommandExecutor {
@@ -62,7 +63,7 @@ public class TPRequestDeclineCommand implements CommandExecutor {
 
                         plugin.removeRequest(player.getUniqueId().toString(), teleportingPlayer.getUniqueId().toString());
                         teleportingPlayer.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "DECLINED! " + ChatColor.RED + "Your teleport request to " + player.getName() + " has been declined :(");
-                        player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "DECLINED! " + ChatColor.GREEN + "Successfully declined " + teleportingPlayer.getName + "'s teleport request!");
+                        player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "DECLINED! " + ChatColor.GREEN + "Successfully declined " + teleportingPlayer.getName() + "'s teleport request!");
                         return true;
                     }
 
@@ -79,7 +80,7 @@ public class TPRequestDeclineCommand implements CommandExecutor {
                     }
                     plugin.removeRequest(player.getUniqueId().toString(), teleportingPlayer.getUniqueId().toString());
                     teleportingPlayer.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "DECLINED! " + ChatColor.RED + "Your teleport request to " + player.getName() + " has been declined :(");
-                    player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "DECLINED! " + ChatColor.GREEN + "Successfully declined " + teleportingPlayer.getName + "'s teleport request!");
+                    player.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "DECLINED! " + ChatColor.GREEN + "Successfully declined " + teleportingPlayer.getName() + "'s teleport request!");
                     return true;
 
                 }
